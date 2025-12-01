@@ -4,6 +4,8 @@ namespace FHCampus02WebServices2025.Models
 {
     public class Pizza
     {
+        public double Groesse { get; set; }
+        private int Gewicht;
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Der Name der Pizza ist erforderlich.")]

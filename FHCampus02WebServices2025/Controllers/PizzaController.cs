@@ -11,6 +11,11 @@ namespace FHCampus02WebServices2025.Controllers
     [Route("api/[controller]")]
     public class PizzaController : ControllerBase
     {
+
+        private PizzaService myPizzaService = new PizzaService();
+
+
+
         private readonly IPizzaService _pizzaService;
         private readonly OrderSettings _orderSettings;
 
@@ -26,6 +31,7 @@ namespace FHCampus02WebServices2025.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Pizza>> GetAll()
         {
+           
             var pizzas = _pizzaService.GetAll();
             return Ok(pizzas);
         }
@@ -43,6 +49,7 @@ namespace FHCampus02WebServices2025.Controllers
 
         // POST: api/pizza
         [HttpPost]
+        /// Hello World
         public ActionResult Create([FromBody] Pizza pizza)
         {
             if (!ModelState.IsValid)
@@ -68,6 +75,7 @@ namespace FHCampus02WebServices2025.Controllers
         [HttpPut("{id:int}")]
         public IActionResult Update(int id, [FromBody] Pizza pizza)
         {
+            
             if (id != pizza.Id)
                 return BadRequest("Id in URL und Body unterscheiden sich.");
 

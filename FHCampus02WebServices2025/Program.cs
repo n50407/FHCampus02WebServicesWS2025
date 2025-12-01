@@ -1,5 +1,7 @@
 using FHCampus02WebServices2025.Configuration;
+using FHCampus02WebServices2025.Models;
 using FHCampus02WebServices2025.Services;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,10 @@ builder.Services.AddSingleton<IPizzaService, PizzaService>();
 builder.Services.Configure<OrderSettings>(
     builder.Configuration.GetSection("OrderSettings")
 );
+builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

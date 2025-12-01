@@ -46,5 +46,10 @@ namespace FHCampus02WebServices2025.Services
 
                 _pizzas[index] = pizza;
             }
+
+        public void Suche()
+        {
+            _pizzas.Where(p => p.Kalorien < 700).ToList();
+        }
         }
     }
